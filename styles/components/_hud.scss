@@ -1,0 +1,41 @@
+/* Race HUD: time and lap count — stays on track top-right; intermission chrome is top-center */
+.race-hud { 
+  position: absolute; 
+  top: 8px; 
+  right: 8px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+  z-index: 200 !important;
+  pointer-events: none;
+}
+.race-time, .lap-counter {
+  background: rgba(215, 240, 241, 0.9); color: var(--color-background);
+  border: 1px solid var(--color-accent); border-radius: 8px; padding: 6px 10px;
+  font-weight: bold; font-size: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Intermission Timer — inside #intermission-timer-host (page top-center) */
+.intermission-timer-display {
+  position: relative;
+  top: auto;
+  right: auto;
+  left: auto;
+  margin-top: 0;
+  background: rgba(252, 199, 219, 0.85);
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 10px 14px;
+  z-index: 221;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(255, 127, 34, 0.4);
+  min-width: 160px;
+  backdrop-filter: blur(10px);
+  animation: none !important;
+  transform: none !important;
+  pointer-events: auto;
+}
+.timer-label { font-size: 12px; font-weight: bold; color: var(--color-background); letter-spacing: 0.06em; }
+.timer-value { font-size: 36px; font-weight: bold; color: var(--color-text); font-family: 'Comic Sans MS', cursive, sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 8px; }
+
+@keyframes Blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0.3; } }

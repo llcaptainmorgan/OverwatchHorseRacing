@@ -1,0 +1,15 @@
+/* Base Typography and Body Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('../images/large_map_6_lanes.png') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--color-text);
+  overflow: hidden; /* Prevent unintended page scroll during racing */
+  /* Centering for web app (from _structure.scss) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,22 @@
+name = "ohr-backend"
+main = "src/worker.js"
+compatibility_date = "2024-11-01"
+
+[[rules]]
+type = "ESModule"
+globs = ["**/*.js"]
+
+[durable_objects]
+bindings = [
+  { name = "SESSION_DO", class_name = "SessionDO" }
+]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["SessionDO"]
+
+[vars]
+# Local default. Worker also allows localhost + https://*.github.io in code.
+ALLOWED_ORIGIN = "http://127.0.0.1:8081"
+
+

@@ -1,0 +1,33 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overwatch Racing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Overwatch Racing Demo</h1>
+    <div class="controls">
+        <button id="start-race-btn">Start Race</button>
+        <span id="race-timer">Race Time: 0.00s</span>
+        <!-- Added Lap Counter -->
+        <span id="lap-counter">Lap: 1 / 4</span>
+    </div>
+
+    <div id="cheer-controls" class="cheer-controls-container"></div>
+    <div class="track-container">
+        <div id="track"></div>
+    </div>
+    <div class="log-container">
+        <h2>Event Log</h2>
+        <div id="event-log"></div>
+    </div>
+    <div id="scoreboard-container" class="hidden">
+        <h2>Final Scoreboard</h2>
+        <ol id="scoreboard"></ol>
+    </div>
+    <script src="{{ url_for('static', filename='race.js') }}"></script>
+</body>
+</html>

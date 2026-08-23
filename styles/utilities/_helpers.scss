@@ -1,0 +1,8 @@
+/* Helper utilities and z-index layering */
+.character-overlay { z-index: 2000; }
+#scoreboard-modal { z-index: 1500; }
+#results-session-modal { z-index: 1600; }
+
+/* Modal visibility helpers */
+.modal:not(.hidden) { animation: fadeInSoft 220ms ease-out; }
+.modal.hidden { display: none; }

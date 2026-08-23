@@ -1,0 +1,40 @@
+# Secrets — never commit (this repo only)
+backend/.dev.vars
+.dev.vars
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Dependencies
+node_modules/
+**/node_modules/
+package-lock.json
+
+# Build outputs
+main/styles.css.map
+*.css.map
+
+# Cloudflare local
+backend/.wrangler/
+.wrangler/
+
+# Editor / agent local (this repo)
+.cursor/
+CursorLog.json
+
+# OS / junk
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+*.tmp
+*.temp
+*~
+.vscode/
+.idea/
+*.swp
+*.swo

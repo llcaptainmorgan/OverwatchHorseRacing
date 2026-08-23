@@ -1,0 +1,1457 @@
+{
+  "roster_info": {
+    "active_characters": 6,
+    "total_available": 42,
+    "last_updated": "2025-08-24",
+    "version": "generated"
+  },
+  "characters": {
+    "ashe": {
+      "id": "ashe",
+      "display_name": "Ashe",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "ashe_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/ashe_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/ashe_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/ashe_roster.png",
+        "portrait_large": "../images/current_roster/ashe_horse_full.png",
+        "racing_sprite": "../images/current_roster/ashe_sprite_small.png"
+      },
+      "available": true
+    },
+    "baptiste": {
+      "id": "baptiste",
+      "display_name": "Baptiste",
+      "role": "Support",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "baptiste_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/baptiste_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/baptiste_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/baptiste_roster.png",
+        "portrait_large": "../images/current_roster/baptiste_horse_full.png",
+        "racing_sprite": "../images/current_roster/baptiste_sprite_small.png"
+      },
+      "available": true
+    },
+    "bastion": {
+      "id": "bastion",
+      "display_name": "Bastion",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "bastion_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/bastion_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/bastion_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/bastion_roster.png",
+        "portrait_large": "../images/current_roster/bastion_horse_full.png",
+        "racing_sprite": "../images/current_roster/bastion_sprite_small.png"
+      },
+      "available": true
+    },
+    "brigette": {
+      "id": "brigette",
+      "display_name": "Brigette",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "brigette_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/brigette_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/brigette_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/roster_images/brigette_roster.png",
+        "portrait_large": null,
+        "racing_sprite": null
+      },
+      "available": false
+    },
+    "cassidy": {
+      "id": "cassidy",
+      "display_name": "Cassidy",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "cassidy_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/cassidy_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/cassidy_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/cassidy_roster.png",
+        "portrait_large": "../images/current_roster/cassidy_horse_full.png",
+        "racing_sprite": "../images/current_roster/cassidy_sprite_small.png"
+      },
+      "available": true
+    },
+    "doomfist": {
+      "id": "doomfist",
+      "display_name": "Doomfist",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "doomfist_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/doomfist_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/doomfist_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/doomfist_roster.png",
+        "portrait_large": "../images/current_roster/doomfist_horse_full.png",
+        "racing_sprite": "../images/current_roster/doomfist_sprite_small.png"
+      },
+      "available": true
+    },
+    "dva": {
+      "id": "dva",
+      "display_name": "D.Va",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "dva_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/dva_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/dva_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/dva_roster.png",
+        "portrait_large": "../images/current_roster/dva_horse_full.png",
+        "racing_sprite": "../images/current_roster/dva_sprite_small.png"
+      },
+      "available": true
+    },
+    "echo": {
+      "id": "echo",
+      "display_name": "Echo",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "echo_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/echo_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/echo_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/echo_roster.png",
+        "portrait_large": "../images/current_roster/echo_horse_full.png",
+        "racing_sprite": "../images/current_roster/echo_sprite_small.png"
+      },
+      "available": true
+    },
+    "freja": {
+      "id": "freja",
+      "display_name": "Freja",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "freja_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/freja_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/freja_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/freja_roster.png",
+        "portrait_large": "../images/current_roster/freja_horse_full.png",
+        "racing_sprite": "../images/current_roster/freja_sprite_small.png"
+      },
+      "available": true
+    },
+    "genji": {
+      "id": "genji",
+      "display_name": "Genji",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "genji_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/genji_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/genji_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/genji_roster.png",
+        "portrait_large": "../images/current_roster/genji_horse_full.png",
+        "racing_sprite": "../images/current_roster/genji_small_sprite.png"
+      },
+      "available": true
+    },
+    "hanzo": {
+      "id": "hanzo",
+      "display_name": "Hanzo",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "hanzo_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/hanzo_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/hanzo_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/hanzo_roster.png",
+        "portrait_large": "../images/current_roster/hanzo_horse_full.png",
+        "racing_sprite": "../images/current_roster/hanzo_sprite_small.png"
+      },
+      "available": true
+    },
+    "hazard": {
+      "id": "hazard",
+      "display_name": "Hazard",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "hazard_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/hazard_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/hazard_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/hazard_roster.png",
+        "portrait_large": "../images/current_roster/hazard_horse_full.png",
+        "racing_sprite": "../images/current_roster/hazard_sprite_small.png"
+      },
+      "available": true
+    },
+    "illari": {
+      "id": "illari",
+      "display_name": "Illari",
+      "role": "Support",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "illari_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/illari_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/illari_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/illari_roster.png",
+        "portrait_large": "../images/current_roster/illari_horse_full.png",
+        "racing_sprite": "../images/current_roster/illari_sprite_small.png"
+      },
+      "available": true
+    },
+    "junkerqueen": {
+      "id": "junkerqueen",
+      "display_name": "Junkerqueen",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "junkerqueen_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/junkerqueen_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/junkerqueen_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/junkerqueen_roster.png",
+        "portrait_large": "../images/current_roster/junkerqueen_horse_full.png",
+        "racing_sprite": "../images/current_roster/junkerqueen_sprite_small.png"
+      },
+      "available": true
+    },
+    "junkrat": {
+      "id": "junkrat",
+      "display_name": "Junkrat",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "junkrat_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/junkrat_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/junkrat_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/junkrat_roster.png",
+        "portrait_large": "../images/current_roster/junkrat_horse_full.png",
+        "racing_sprite": "../images/current_roster/junkrat_sprite_small.png"
+      },
+      "available": true
+    },
+    "juno": {
+      "id": "juno",
+      "display_name": "Juno",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "juno_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/juno_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/juno_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/juno_roster.png",
+        "portrait_large": "../images/current_roster/juno_horse_full.png",
+        "racing_sprite": "../images/current_roster/juno_small_sprite.png"
+      },
+      "available": true
+    },
+    "kirko": {
+      "id": "kirko",
+      "display_name": "Kirko",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "kirko_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/kirko_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/kirko_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/kirko_roster.png",
+        "portrait_large": null,
+        "racing_sprite": null
+      },
+      "available": false
+    },
+    "lucio": {
+      "id": "lucio",
+      "display_name": "Lúcio",
+      "role": "Support",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "lucio_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/lucio_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/lucio_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/lucio_roster.png",
+        "portrait_large": "../images/current_roster/lucio_horse_full.png",
+        "racing_sprite": "../images/current_roster/lucio_sprite_small.png"
+      },
+      "available": true
+    },
+    "mauga": {
+      "id": "mauga",
+      "display_name": "Mauga",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "mauga_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/mauga_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/mauga_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/mauga_roster.png",
+        "portrait_large": "../images/current_roster/mauga_horse_full.png",
+        "racing_sprite": "../images/current_roster/mauga_small_sprite.png"
+      },
+      "available": true
+    },
+    "mei": {
+      "id": "mei",
+      "display_name": "Mei",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "mei_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/mei_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/mei_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/mei_roster.png",
+        "portrait_large": "../images/current_roster/mei_horse_full.png",
+        "racing_sprite": "../images/current_roster/mei_sprite_small.png"
+      },
+      "available": true
+    },
+    "mercy": {
+      "id": "mercy",
+      "display_name": "Mercy",
+      "role": "Support",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "mercy_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/mercy_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/mercy_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/mercy_roster.png",
+        "portrait_large": "../images/current_roster/mercy_horse_full.png",
+        "racing_sprite": "../images/current_roster/mercy_sprite_small.png"
+      },
+      "available": true
+    },
+    "moira": {
+      "id": "moira",
+      "display_name": "Moira",
+      "role": "Support",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "moira_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/moira_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/moira_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/moira_roster.png",
+        "portrait_large": "../images/current_roster/moira_horse_full.png",
+        "racing_sprite": "../images/current_roster/moira_sprite_small.png"
+      },
+      "available": true
+    },
+    "orisa": {
+      "id": "orisa",
+      "display_name": "Orisa",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "orisa_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/orisa_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/orisa_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/orisa_roster.png",
+        "portrait_large": "../images/current_roster/orisa_horse_full.png",
+        "racing_sprite": "../images/current_roster/orisa_sprite_small.png"
+      },
+      "available": true
+    },
+    "pharah": {
+      "id": "pharah",
+      "display_name": "Pharah",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "pharah_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/pharah_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/pharah_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/pharah_roster.png",
+        "portrait_large": "../images/current_roster/pharah_horse_full.png",
+        "racing_sprite": "../images/current_roster/pharah_sprite_small.png"
+      },
+      "available": true
+    },
+    "ramattra": {
+      "id": "ramattra",
+      "display_name": "Ramattra",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "ramattra_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/ramattra_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/ramattra_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/ramattra_roster.png",
+        "portrait_large": "../images/current_roster/ramattra_horse_full.png",
+        "racing_sprite": "../images/current_roster/ramattra_small_sprite.png"
+      },
+      "available": true
+    },
+    "reaper": {
+      "id": "reaper",
+      "display_name": "Reaper",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "reaper_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/reaper_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/reaper_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/reaper_roster.png",
+        "portrait_large": "../images/current_roster/reaper_horse_full.png",
+        "racing_sprite": "../images/current_roster/reaper_sprite_small.png"
+      },
+      "available": true
+    },
+    "reinhardt": {
+      "id": "reinhardt",
+      "display_name": "Reinhardt",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "reinhardt_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/reinhardt_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/reinhardt_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/reinhardt_roster.png",
+        "portrait_large": "../images/current_roster/reinhardt_horse_full.png",
+        "racing_sprite": "../images/current_roster/reinhardt_sprite_small.png"
+      },
+      "available": true
+    },
+    "roadhog": {
+      "id": "roadhog",
+      "display_name": "Roadhog",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "roadhog_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/roadhog_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/roadhog_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/roadhog_roster.png",
+        "portrait_large": "../images/current_roster/roadhog_horse_full.png",
+        "racing_sprite": "../images/current_roster/roadhog_sprite_small.png"
+      },
+      "available": true
+    },
+    "sigma": {
+      "id": "sigma",
+      "display_name": "Sigma",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "sigma_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/sigma_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/sigma_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/sigma_roster.png",
+        "portrait_large": "../images/current_roster/sigma_horse_full.png",
+        "racing_sprite": "../images/current_roster/sigma_sprite_small.png"
+      },
+      "available": true
+    },
+    "sojourn": {
+      "id": "sojourn",
+      "display_name": "Sojourn",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "sojourn_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/sojourn_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/sojourn_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/sojourn_roster.png",
+        "portrait_large": "../images/current_roster/sojourn_horse_full.png",
+        "racing_sprite": "../images/current_roster/sojourn_sprite_small.png"
+      },
+      "available": true
+    },
+    "soldier76": {
+      "id": "soldier76",
+      "display_name": "Soldier: 76",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "soldier76_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/soldier76_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/soldier76_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/soldier76_roster.png",
+        "portrait_large": "../images/current_roster/soldier76_horse_full.png",
+        "racing_sprite": "../images/current_roster/soldier76_sprite_small.png"
+      },
+      "available": true
+    },
+    "sombra": {
+      "id": "sombra",
+      "display_name": "Sombra",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "sombra_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/sombra_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/sombra_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/sombra_roster.png",
+        "portrait_large": "../images/current_roster/sombra_horse_full.png",
+        "racing_sprite": "../images/current_roster/sombra_sprite_small.png"
+      },
+      "available": true
+    },
+    "symmetra": {
+      "id": "symmetra",
+      "display_name": "Symmetra",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "symmetra_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/symmetra_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/symmetra_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/symmetra_roster.png",
+        "portrait_large": "../images/current_roster/symmetra_horse_full.png",
+        "racing_sprite": "../images/current_roster/symmetra_sprite_small.png"
+      },
+      "available": true
+    },
+    "torbjorn": {
+      "id": "torbjorn",
+      "display_name": "Torbjörn",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "torbjorn_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/torbjorn_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/torbjorn_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/torbjorn_roster.png",
+        "portrait_large": "../images/current_roster/torbjorn_horse_full.png",
+        "racing_sprite": "../images/current_roster/torbjorn_sprite_small.png"
+      },
+      "available": true
+    },
+    "tracer": {
+      "id": "tracer",
+      "display_name": "Tracer",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "tracer_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/tracer_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/tracer_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/tracer_roster.png",
+        "portrait_large": "../images/current_roster/tracer_horse_full.png",
+        "racing_sprite": null
+      },
+      "available": false
+    },
+    "venture": {
+      "id": "venture",
+      "display_name": "Venture",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "venture_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/venture_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/venture_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/venture_roster.png",
+        "portrait_large": "../images/current_roster/venture_horse_full.png",
+        "racing_sprite": "../images/current_roster/venture_sprite_small.png"
+      },
+      "available": true
+    },
+    "widowmaker": {
+      "id": "widowmaker",
+      "display_name": "Widowmaker",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "widowmaker_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/widowmaker_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/widowmaker_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/widowmaker_roster.png",
+        "portrait_large": "../images/current_roster/widowmaker_horse_full.png",
+        "racing_sprite": "../images/current_roster/widowmaker_sprite_small.png"
+      },
+      "available": true
+    },
+    "winnston": {
+      "id": "winnston",
+      "display_name": "Winnston",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "winnston_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/winnston_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/winnston_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/winnston_roster.png",
+        "portrait_large": null,
+        "racing_sprite": null
+      },
+      "available": false
+    },
+    "wreckingball": {
+      "id": "wreckingball",
+      "display_name": "Wrecking Ball",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "wreckingball_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/wreckingball_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/wreckingball_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/wreckingball_roster.png",
+        "portrait_large": "../images/current_roster/wreckingball_horse_full.png",
+        "racing_sprite": "../images/current_roster/wreckingball_sprite_small.png"
+      },
+      "available": true
+    },
+    "wuyang": {
+      "id": "wuyang",
+      "display_name": "Wuyang",
+      "role": "Damage",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "wuyang_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/wuyang_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/wuyang_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/wuyang_roster.png",
+        "portrait_large": null,
+        "racing_sprite": null
+      },
+      "available": false
+    },
+    "zarya": {
+      "id": "zarya",
+      "display_name": "Zarya",
+      "role": "Tank",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "zarya_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/zarya_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/zarya_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/zarya_roster.png",
+        "portrait_large": "../images/current_roster/zarya_horse_full.png",
+        "racing_sprite": "../images/current_roster/zarya_sprite_small.png"
+      },
+      "available": true
+    },
+    "zenyatta": {
+      "id": "zenyatta",
+      "display_name": "Zenyatta",
+      "role": "Support",
+      "stats": {
+        "speed": 70,
+        "power": 70,
+        "stamina": 70,
+        "determination": 70
+      },
+      "racer_style": "pace_chaser",
+      "ability": {
+        "id": "zenyatta_ability",
+        "name": "Ability",
+        "description": "To be defined",
+        "cooldown_sec": 12,
+        "effects": {
+          "speed_add": 0,
+          "power_add": 0,
+          "stamina_add": 0,
+          "position_add": 0
+        }
+      },
+      "voice": {
+        "ability_voiceline_path": "../sounds/OHR_Voicelines/abilities/zenyatta_ability.wav",
+        "victory_voiceline_path": "../sounds/OHR_Voicelines/finish/zenyatta_victory.wav"
+      },
+      "assets": {
+        "thumbnail": "../images/current_roster/zenyatta_roster.png",
+        "portrait_large": "../images/current_roster/zenyatta_horse_full.png",
+        "racing_sprite": "../images/current_roster/zenyatta_sprite_small.png"
+      },
+      "available": true
+    }
+  },
+  "racing_mechanics": {
+    "base_stats": {
+      "speed": 70,
+      "power": 70,
+      "stamina": 70
+    },
+    "race_settings": {
+      "track_distance": 1600,
+      "lap_distance": 400,
+      "total_laps": 4,
+      "intermission_duration": 180
+    },
+    "cheer_rules": {
+      "cooldown_min_sec": 10,
+      "cooldown_max_sec": 16,
+      "anti_spam_window_sec": 5,
+      "anti_spam_threshold": 3
+    }
+  }
+}

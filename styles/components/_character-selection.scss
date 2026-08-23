@@ -1,0 +1,341 @@
+/* =07 Overwatch-Style Character Selection */
+.character-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  &.hidden { display: none; }
+}
+
+/* Central character display area */
+#character-central-display {
+  display: flex; align-items: center; justify-content: center;
+  gap: 40px; margin-bottom: 30px; position: relative; z-index: 1001;
+}
+.character-main-view { display: flex; align-items: center; justify-content: center; }
+.character-large-image {
+  max-height: 350px; max-width: 300px; object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.8)); transition: all 0.4s ease;
+  background: transparent; border-radius: 8px;
+}
+.character-large-image[alt="Image not found"] {
+  background: rgba(64, 77, 112, 0.3); border: 2px dashed var(--color-primary);
+  display: flex; align-items: center; justify-content: center; min-height: 200px; min-width: 200px;
+}
+
+/* Character info */
+.character-info-panel {
+  width: 250px; background: rgba(252, 199, 219, 0.9);
+  border: 2px solid var(--color-accent); border-radius: 12px; padding: 20px; backdrop-filter: blur(15px);
+}
+#character-name { font-size: 24px; font-weight: bold; color: var(--color-background); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.character-role { font-size: 14px; color: var(--color-primary); font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+
+/* Stats display */
+.character-stats { display: flex; flex-direction: column; gap: 15px; }
+.stat-row { display: flex; align-items: center; gap: 10px; }
+.stat-label { font-size: 12px; font-weight: bold; color: var(--color-background); width: 60px; text-transform: uppercase; }
+.stat-bar { flex: 1; height: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; overflow: hidden; position: relative; }
+.stat-fill { height: 100%; background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%); border-radius: 10px; width: 70%; transition: width 0.6s ease; }
+.stat-value { font-size: 12px; font-weight: bold; color: var(--color-background); width: 25px; }
+
+/* Lock In */
+#lock-in-container { display: flex; gap: 20px; align-items: center; justify-content: center; margin-bottom: 40px; z-index: 1001; position: relative; }
+#lock-in-button {
+  width: 200px; height: 50px; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(255, 127, 34, 0.4);
+  &:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 127, 34, 0.6); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+}
+#cancel-selection { width: 120px; height: 40px; background: rgba(127, 140, 141, 0.8); color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; &:hover { background: rgba(149, 165, 166, 0.9); transform: translateY(-2px); } }
+
+/* Roster grid - positioned to use bottom panel space */
+#character-roster-grid {
+  position: fixed; 
+  bottom: 120px; /* Position above user panels (panels are ~100px tall) */
+  left: 50%; 
+  transform: translateX(-50%);
+  width: 95%; 
+  max-width: 1400px; 
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid var(--color-primary); 
+  border-radius: 12px; 
+  padding: 20px; 
+  backdrop-filter: blur(15px);
+  z-index: 2001;
+}
+.grid-container { 
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  gap: 8px;
+}
+
+.character-icon {
+  width: 80px; height: 80px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; border: 3px solid transparent; overflow: hidden; position: relative;
+  img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; background: var(--color-background); transition: all 0.3s ease; }
+  &:hover { transform: scale(1.1); border-color: var(--color-secondary); box-shadow: 0 5px 15px rgba(255, 127, 34, 0.6); }
+  &.selected { border-color: var(--color-primary); transform: scale(1.15); box-shadow: 0 8px 25px rgba(255, 127, 34, 0.8); }
+  &.unavailable { opacity: 0.4; cursor: not-allowed; filter: grayscale(100%); &:hover { transform: none; border-color: transparent; box-shadow: none; } }
+}
+
+/* Character Preview */
+#character-preview { display: flex; gap: 30px; padding: 20px; min-height: 400px; }
+#character-portrait { flex: 0 0 300px; display: flex; align-items: center; justify-content: center; }
+.character-portrait-container { width: 100%; height: 300px; position: relative; }
+.character-portrait-img { width: 100%; height: 100%; border-radius: 15px; border: 3px solid var(--color-primary); object-fit: cover; }
+.character-portrait-placeholder { width: 100%; height: 100%; border-radius: 15px; border: 3px solid var(--color-primary); background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.placeholder-text { font-size: 24px; font-weight: bold; color: var(--color-text); margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+.placeholder-subtitle { font-size: 16px; color: var(--color-background); font-style: italic; }
+
+#character-stats { flex: 1; color: var(--color-text); }
+#character-stats h3 { color: var(--color-primary); font-size: 24px; margin-bottom: 10px; }
+.character-title { color: var(--color-secondary); font-style: italic; margin-bottom: 15px; }
+.character-description { color: var(--color-text); margin-bottom: 20px; line-height: 1.5; }
+.character-stats-bars h4 { color: var(--color-primary); margin-bottom: 15px; font-size: 18px; }
+.stat-bar-container { margin-bottom: 15px; }
+.stat-label { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 14px; color: var(--color-text); }
+.stat-bar-background { border-radius: 4px; overflow: hidden; }
+.stat-bar-fill { border-radius: 4px; }
+
+.character-details { margin-top: 20px; padding-top: 20px; border-top: 2px solid var(--color-background); }
+.character-details p { margin-bottom: 8px; color: var(--color-text); }
+.character-details strong { color: var(--color-secondary); }
+
+.no-selection { display: flex; align-items: center; justify-content: center; height: 200px; color: var(--color-background); font-style: italic; }
+
+/* Selected Character Display */
+#selected-character { display: flex; align-items: center; gap: 10px; color: var(--color-background); font-weight: bold; }
+.selected-character-thumb { width: 40px; height: 40px; border-radius: 6px; border: 2px solid var(--color-primary); }
+
+/* Character Selection Button */
+#select-character-btn { background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-surface) 100%); color: var(--color-background); border: 2px solid var(--color-primary); padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; margin-left: 15px; }
+#select-character-btn:hover { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); color: var(--color-text); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(255, 127, 34, 0.3); }
+
+// Container sizing
+.character-overlay {
+	// keep overlay but remove blocky panel feel
+	background: none;
+}
+
+#character-roster-grid {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 50px; // 50px each side per spec
+	background: transparent;
+	border: none;
+}
+
+// Role sections and headers
+.role-section {
+	margin: 8px 0 4px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.role-header {
+	font-weight: 800;
+	letter-spacing: 1px;
+	font-size: 12px;
+	text-transform: uppercase;
+	padding: 2px 8px;
+	border-radius: 10px;
+	background: rgba(255,255,255,0.14);
+	border: 1px solid rgba(64,77,112,0.25);
+	color: #404d70;
+}
+.role-header--tank { background: rgba(114,137,218,0.25); border-color: #7289da; }
+.role-header--damage { background: rgba(231,76,60,0.20); border-color: #e74c3c; }
+.role-header--support { background: rgba(255,206,84,0.25); border-color: #ffce54; }
+
+// Two-row grid per role, with adjustable offset on second row
+.grid-container {
+	row-gap: 8px;
+}
+.grid-two-rows {
+	display: grid;
+	grid-template-columns: repeat(14, minmax(0, 1fr));
+	grid-auto-rows: 82px; // icon size line height
+	gap: 10px;
+}
+.grid-row-offset {
+	margin-left: var(--row-offset, 30px);
+}
+
+// Big image overlap mode
+.character-main-view.overlap-mode {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 0;
+	pointer-events: none;
+}
+.character-large-image.overlap-mode {
+	opacity: 0.92;
+	max-height: 420px;
+}
+
+// Ability row
+.ability-row .ability-name {
+	font-weight: 800;
+	font-size: 13px;
+	color: #404d70;
+}
+
+// Lock-in below grid
+.lockin-below-grid {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	justify-content: center;
+	margin: 16px auto 0;
+}
+
+// Taken/unavailable icons - no hover
+.character-icon.unavailable {
+	filter: grayscale(100%);
+	pointer-events: none;
+}
+
+// Icon sizing to match reference feel
+.character-icon {
+	width: 82px;
+	height: 82px;
+	border-radius: 12px;
+}
+.character-icon img {
+	border-radius: 12px;
+}
+
+// Width adjustments
+#character-roster-grid {
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0 2%;
+}
+
+:root {
+	--icon-size: 30px;
+	--row-offset: 5px;
+}
+
+// Center headers on their own row
+.role-section {
+	justify-content: center;
+	margin: 10px 0 6px;
+}
+
+// Prevent icon overlap – explicit gaps
+.grid-two-rows {
+	display: grid;
+	grid-template-columns: repeat(14, var(--icon-size));
+	justify-content: center;
+	grid-auto-rows: var(--icon-size);
+	column-gap: 4px;
+	row-gap: 4px;
+}
+
+// Apply stagger to every 2nd row (manual for even items via nth-child)
+.grid-two-rows .character-icon:nth-child(odd) {}
+.grid-two-rows .character-icon { margin: 0; }
+.grid-two-rows::before { content: ''; }
+
+// Icon dimensions via variable
+.character-icon { width: var(--icon-size); height: var(--icon-size); }
+.character-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+// Halo and big art unchanged
+
+// Stats single row
+.selection-stats-row {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+	align-items: center;
+	width: 96%;
+	max-width: 1024px;
+	margin: 10px auto 0;
+}
+.selection-stats-row .stat-row { display: grid; grid-template-columns: 64px 1fr 36px; gap: 6px; align-items: center; }
+.selection-stats-row .stat-bar { height: 18px; }
+.selection-stats-row .ability-row { grid-template-columns: 80px auto; }
+
+// Coming soon badge preserved
+
+@media (max-width: 1280px) {
+	.grid-two-rows { grid-template-columns: repeat(12, var(--icon-size)); }
+}
+@media (max-width: 1024px) {
+	.grid-two-rows { grid-template-columns: repeat(10, var(--icon-size)); }
+}
+@media (max-width: 768px) {
+	.grid-two-rows { grid-template-columns: repeat(6, var(--icon-size)); }
+	.selection-stats-row { grid-template-columns: 1fr; }
+}
+
+// Role wrappers with dynamic width per role (centers and reduces section width)
+.role-grid-wrap {
+	position: relative;
+	z-index: 2; // above halo/big art
+	display: grid;
+	grid-auto-rows: var(--icon-size);
+	justify-content: center;
+	column-gap: 4px;
+	row-gap: 4px;
+	margin: 0 auto 6px;
+}
+
+// Role row: three zones (Tank left, Damage center, Support right) - centered
+.role-row {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 60px; /* Space between role groups */
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto 8px;
+	position: relative;
+	z-index: 2;
+}
+
+.role-group { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+
+// Pill headers
+.role-header {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 74px;
+	height: 28px;
+	padding: 0 10px;
+	border-radius: 14px;
+	font-weight: 900; letter-spacing: 1px; font-size: 12px; text-transform: uppercase;
+	border: 1px solid rgba(64,77,112,0.25); color: #404d70; background: rgba(255,255,255,0.14);
+}
+
+// Two-row auto-flow grid that expands columns
+.role-grid {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-rows: repeat(2, var(--icon-size));
+	grid-auto-columns: var(--icon-size);
+	column-gap: 6px;
+	row-gap: 6px;
+	justify-content: center;
+}
+
+// Circular icons
+.character-icon { width: var(--icon-size); height: var(--icon-size); border-radius: 50%; overflow: hidden; position: relative; }
+.character-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+// Keep UI above halo
+.role-row, .selection-stats-row, .lockin-below-grid { position: relative; z-index: 2; }
+.selection-halo { z-index: 0; }
+.character-large-image { z-index: 1; }
+
+// Slightly tighten spacing below roster
+.selection-stats-row { margin-top: 6px; }
+.lockin-below-grid { margin-top: 6px; }

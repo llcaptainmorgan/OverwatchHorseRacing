@@ -1,0 +1,79 @@
+/* Discord Panels */
+#discord-panels-container {
+  position: fixed !important; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 15px; z-index: 300 !important; /* Above race game container */ pointer-events: none;
+}
+
+.discord-panel {
+  width: 160px; height: 120px; background: rgba(252, 199, 219, 0.8);
+  border: 1px solid var(--color-accent); border-radius: 8px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: all 0.3s ease; backdrop-filter: blur(10px); pointer-events: auto; cursor: pointer; position: relative;
+}
+
+.panel-banner {
+  position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+  width: 64px; height: 64px; border-radius: 8px; border: 2px solid var(--color-primary);
+  overflow: hidden; background: var(--color-background); box-shadow: 0 6px 12px rgba(0,0,0,0.35); display: none; z-index: 2;
+}
+.panel-banner img { width: 100%; height: 100%; object-fit: cover; }
+.panel-banner.vfx-buff { box-shadow: 0 0 18px 6px rgba(255, 215, 0, 0.9); }
+.panel-banner.vfx-debuff { box-shadow: 0 0 18px 6px rgba(231, 76, 60, 0.9); filter: saturate(0.8) contrast(1.1); }
+.panel-banner.vfx-ability { box-shadow: 0 0 22px 8px rgba(255, 140, 0, 0.95); }
+
+.panel-exit-btn {
+  position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; border-radius: 50%;
+  background: var(--color-error); color: #fff; font-weight: bold; font-size: 14px; line-height: 18px; text-align: center;
+  cursor: pointer; display: none; z-index: 3;
+}
+.discord-panel.owner .panel-exit-btn { display: block; }
+.discord-panel.has-banner .panel-banner { display: block; }
+
+/* States */
+.discord-panel.waiting .panel-banner img { filter: grayscale(100%) blur(1px); opacity: 0.6; }
+.discord-panel.waiting .panel-content { opacity: 0.7; }
+
+.user-avatar.avatar-buff { box-shadow: 0 0 12px 4px rgba(255, 215, 0, 0.9); border-color: #ffd700; }
+.user-avatar.avatar-debuff { box-shadow: 0 0 12px 4px rgba(231, 76, 60, 0.9); border-color: var(--color-error); }
+.discord-panel.warning { animation: warnPulse 0.8s ease-in-out; }
+@keyframes warnPulse {
+  0% { box-shadow: 0 0 0 rgba(231, 76, 60, 0.0); }
+  50% { box-shadow: 0 0 25px rgba(231, 76, 60, 0.9); }
+  100% { box-shadow: 0 0 0 rgba(231, 76, 60, 0.0); }
+}
+
+.discord-panel.empty { opacity: 0.7; border-style: dashed; }
+.discord-panel.empty:hover { opacity: 1; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 127, 34, 0.3); border-color: var(--color-primary); }
+.plus-icon { font-size: 40px; color: var(--color-primary); font-weight: bold; transition: all 0.3s ease; }
+.discord-panel.empty:hover .plus-icon { transform: scale(1.2); }
+
+/* Disabled claims tooltip */
+.discord-panel.disabled-claim::after {
+  content: attr(data-tooltip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+  background: rgba(64, 77, 112, 0.95); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 10px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; margin-bottom: 6px;
+}
+.discord-panel.disabled-claim:hover::after { opacity: 1; }
+
+/* Disabled action tooltip */
+.discord-panel .panel-action-btn.disabled:hover::after {
+  content: attr(data-tooltip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+  background: rgba(64, 77, 112, 0.95); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 10px; white-space: nowrap; opacity: 1; pointer-events: none; margin-bottom: 6px;
+}
+
+/* Panel content */
+.panel-content { display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%; padding: 10px; text-align: center; }
+.user-profile { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.user-avatar { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--color-primary); object-fit: cover; background: var(--color-background); transition: all 0.3s ease; }
+.user-avatar[alt="Image not found"] { object-fit: contain; background: var(--color-primary); }
+.user-name { font-size: 12px; font-weight: bold; color: var(--color-background); max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 2px 6px; background: rgba(252,199,219,0.7); border: 1px solid var(--color-accent); border-radius: 6px; }
+
+/* Action buttons inside panel are styled in components/_buttons.scss */
+
+/* Active/Cheering */
+.discord-panel.active { box-shadow: 0 8px 25px rgba(255, 127, 34, 0.6); border-color: var(--color-primary); }
+.discord-panel.cheering { animation: cheerPulse 1s ease-in-out; transform: scale(1.05); }
+@keyframes cheerPulse {
+  0% { transform: scale(1); box-shadow: 0 8px 25px rgba(255, 127, 34, 0.6); }
+  50% { transform: scale(1.1); box-shadow: 0 15px 35px rgba(255, 215, 0, 0.8); border-color: #ffd700; }
+  100% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 127, 34, 0.6); }
+}

@@ -1,0 +1,31 @@
+/* =12 Responsive Media Queries */
+@media (max-width: 768px) {
+  #user-panel { flex-direction: column; gap: 15px; }
+  #character-grid { grid-template-columns: repeat(3, 1fr); }
+  #race-track { width: 95%; height: 300px; }
+  .splash-main-logo { max-width: 250px; }
+  .splash-wide-logo { max-width: 350px; }
+  .enter-button { padding: 12px 30px; font-size: 20px; }
+  .jukebox-toggle-icon { right: 3%; width: 45px; height: 45px; }
+  .in-game-intermission-placement { left: 50%; right: auto; transform: translateX(-50%); max-width: min(320px, 70vw); }
+  .hanging-sign img { max-width: min(200px, 55vw); }
+  .intermission-timer-display { padding: 10px; min-width: 130px; }
+  .timer-value { font-size: 24px; }
+  #session-info { right: 12px; top: 10px; }
+  .jukebox-widget { bottom: 10px; right: 10px; max-width: 280px; }
+}
+
+@media (max-width: 480px) {
+  #character-grid { grid-template-columns: repeat(2, 1fr); }
+  .character-card { width: 80px; height: 80px; }
+  #cheer-button { padding: 12px 24px; font-size: 16px; }
+  .splash-main-logo { max-width: 200px; }
+  .splash-wide-logo { max-width: 280px; }
+  .enter-button { padding: 10px 25px; font-size: 18px; }
+  .jukebox-toggle-icon { right: 5px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; }
+  .hanging-sign img { max-width: 180px; }
+  .intermission-timer-display { padding: 10px; min-width: 120px; }
+  .timer-value { font-size: 20px; }
+  .jukebox-widget { bottom: 5px; right: 5px; max-width: 220px; }
+  .track-list { max-height: 120px; }
+}

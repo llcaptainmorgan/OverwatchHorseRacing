@@ -1,0 +1,85 @@
+/* Racing characters container */
+#racing-characters {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
+  z-index: 100 !important; /* Above track background, below HUD */
+  overflow: visible !important; /* Critical: allow sprites to move along elliptical path */
+  /* Ensure container doesn't clip sprites that may extend beyond track bounds */
+  min-width: 100%;
+  min-height: 100%;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Racer sprite chips (similar to demo's .racer and .racer-sprite) */
+.racer-sprite {
+  position: absolute !important;
+  width: 48px !important;  /* Updated to match JS sprite size */
+  height: 48px !important;  /* Updated to match JS sprite size */
+  border-radius: 50%;
+  background: var(--color-primary) !important;
+  border: 4px solid var(--color-secondary) !important;
+  color: #fff !important;
+  font-size: 12px !important;  /* Updated to match JS font size */
+  font-weight: bold;
+  display: flex !important; 
+  align-items: center !important; 
+  justify-content: center !important; 
+  pointer-events: none; 
+  box-shadow: 0 6px 16px rgba(0,0,0,0.8) !important;
+  z-index: 100 !important; /* Much higher z-index to ensure visibility */
+  /* Smooth transitions like demo - only transform to avoid conflicts */
+  transition: transform 0.1s linear !important;
+  transform-origin: center center !important;
+  /* Ensure sprites are always visible */
+  opacity: 1 !important;
+  visibility: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  /* Drop shadow like demo */
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.4)) !important;
+}
+
+/* Flipped sprite class (like demo) */
+.racer-sprite.flipped {
+  /* The inline transform from JS includes scaleX(-1), but we apply it here for consistency */
+  /* Note: Inline style takes precedence, so this mainly ensures CSS is correct */
+}
+.racer-sprite.has-img { 
+  border-radius: 0; 
+  background: transparent; 
+  border-color: transparent; 
+}
+.racer-sprite .racer-img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+  image-rendering: auto; /* Changed from pixelated to auto for clean rendering */
+  pointer-events: none;
+  display: block;
+}
+
+/* Generic racer VFX overlay elements */
+.racer-vfx { position: absolute; width: 28px; height: 28px; top: -2px; left: -2px; pointer-events: none; }
+.vfx-buff { filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.9)); }
+.vfx-debuff { filter: drop-shadow(0 0 8px rgba(231, 76, 60, 0.9)); }
+.vfx-anti-spam { filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.9)); }
+
+/* Particle burst VFX */
+.vfx-burst { position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; border-radius: 50%; transform: translate(-50%, -50%); opacity: 0.9; pointer-events: none; animation: burstFade 600ms ease-out forwards; }
+.vfx-burst--buff { background: rgba(255, 215, 0, 0.95); box-shadow: 0 0 12px 6px rgba(255,215,0,0.6); }
+.vfx-burst--debuff { background: rgba(231, 76, 60, 0.95); box-shadow: 0 0 12px 6px rgba(231,76,60,0.6); }
+.vfx-burst--spam { background: rgba(255, 0, 255, 0.95); box-shadow: 0 0 12px 6px rgba(255,0,255,0.6); }
+@keyframes burstFade { 0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.9; } 70% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.7; } 100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; } }
+
+/* Tinted overlay */
+.racer-overlay { position: absolute; inset: -2px; border-radius: 4px; pointer-events: none; animation: overlayFlash 700ms ease-out forwards; }
+.racer-overlay--debuff { background: rgba(231, 76, 60, 0.28); }
+.racer-overlay--spam { background: rgba(255, 0, 255, 0.28); }
+.racer-overlay--buff { background: rgba(255, 215, 0, 0.22); }
+@keyframes overlayFlash { 0% { opacity: 0.9; } 100% { opacity: 0; } }

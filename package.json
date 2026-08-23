@@ -1,0 +1,19 @@
+{
+  "name": "overwatch-horse-racing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build:css": "sass styles/main.scss main/styles.css --no-source-map",
+    "watch:css": "sass --watch styles/main.scss:main/styles.css --no-source-map",
+    "dev": "npm-run-all --parallel watch:css",
+    "dev:frontend": "python -m http.server 8081 || npx http-server -p 8081 -c-1",
+    "dev:backend": "cd backend && wrangler dev",
+    "build": "npm run build:css",
+    "deploy:backend": "cd backend && wrangler deploy",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0",
+    "npm-run-all": "^4.1.5"
+  }
+}

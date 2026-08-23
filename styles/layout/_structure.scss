@@ -1,0 +1,152 @@
+/* =02 Layout Structure */
+#game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  max-width: 1920px; /* Max width for large screens */
+  margin: 0 auto; /* Center horizontally */
+}
+
+#game-container.hidden { display: none; }
+
+/* Session Info */
+#session-info {
+  position: fixed !important; /* Changed to fixed so it's above race container */
+  top: 10px;
+  right: 12px; /* Session chip top-right; intermission chrome is top-center */
+  color: var(--color-text);
+  font-size: 14px;
+  background: rgba(252, 199, 219, 0.6);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--color-accent);
+  z-index: 300 !important; /* Above race game container */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#copy-invite-inapp {
+  height: 28px;
+  font-size: 11px;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: #fff;
+  font-weight: bold;
+}
+#copy-invite-inapp.is-copied { background: #2d8a4e; }
+
+/* Main Game Area */
+#game-main {
+  flex: 1;
+  padding: 0; /* Remove padding to allow fullscreen race container */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Race Game Container - Centered Container for All Race Elements (similar to demo) */
+#race-game-container {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 90% !important;
+  max-width: 1400px !important;
+  aspect-ratio: 16 / 9 !important; /* Match demo aspect ratio */
+  max-height: 90vh !important;
+  z-index: 10 !important; /* Above body background (z-index 0) */
+  border: none !important;
+  box-sizing: border-box;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible;
+  pointer-events: none; /* Allow clicks to pass through to UI elements */
+  background: transparent !important;
+}
+
+/* Race Track Container - Similar to demo's .track-container */
+#race-track-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  background: transparent;
+  border: none;
+}
+
+/* Race Track - Similar to demo's #track */
+#race-track {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  overflow: visible !important; /* Allow sprites to move along elliptical path */
+  box-shadow: none;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1;
+}
+
+/* In-game logo placements (top-left page chrome) */
+.in-game-logo-placement { position: fixed; z-index: 30; }
+
+.in-game-logo {
+  position: fixed;
+  max-width: 200px;
+  height: auto;
+  left: 10px;
+  top: 10px;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+
+.in-game-wide-logo {
+  position: fixed;
+  max-width: 300px;
+  height: auto;
+  left: 170px;
+  top: 10px;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+
+/* Intermission chrome — top-middle page chrome (clear of jukebox + race HUD) */
+.in-game-intermission-placement {
+  position: fixed;
+  top: 6px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  z-index: 220; /* above jukebox (200); race container is 10 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  pointer-events: none;
+  max-width: min(420px, 46vw);
+}
+
+/* Hanging Sign — top-center; keep clear of #race-hud (track top-right) */
+.hanging-sign {
+  position: relative;
+  margin-top: -8px;
+  margin-right: 0;
+  z-index: 1;
+  pointer-events: none;
+  line-height: 0;
+}
+.hanging-sign img {
+  max-width: min(280px, 42vw);
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  display: block;
+}

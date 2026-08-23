@@ -1,0 +1,33 @@
+// Overwatch Horse Racing - Main Stylesheet
+
+// 1. Utilities (Functions, Mixins - if you add any)
+// (Reserved: styles/utilities/*)
+
+// 2. Base Styles (Variables, Resets, Global Styles)
+@use 'base/variables';
+@use 'base/reset';
+@use 'base/typography';
+
+// 3. Layout Rules (Major page structure)
+@use 'layout/structure';
+
+// 4. Components (Individual UI elements)
+@use 'components/announcer';
+@use 'components/buttons';
+@use 'components/character-selection';
+@use 'components/discord-panels';
+@use 'components/event-log';
+@use 'components/hud';
+@use 'components/jukebox';
+@use 'components/modals';
+@use 'components/racer-sprites';
+@use 'components/splash-screen';
+@use 'components/user-display';
+@use 'components/notifications';
+
+// 5. Utilities (Helper classes, animations)
+@use 'utilities/animations';
+@use 'utilities/helpers';
+
+// 6. Responsive Styles (The final layer of overrides)
+@use 'layout/responsive';

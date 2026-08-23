@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overwatch Horse Racing (OHR)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Game Container -->
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logos">
+                <img src="../images/OHR_logo.png" alt="OHR Logo" class="splash-main-logo">
+            </div>
+            <div id="splash-controls">
+                <div id="splash-loading" class="splash-loading">Loading…</div>
+                <div id="splash-spinner" class="splash-spinner" aria-hidden="true"></div>
+                <button id="enter-app" class="enter-button hidden" style="display:none">ENTER</button>
+                <button id="discord-sign-in" class="enter-button hidden" style="display:none">SIGN IN WITH DISCORD</button>
+                <div id="oauth-error" class="oauth-error hidden" role="alert"></div>
+                <div id="session-join" class="session-join hidden">
+                    <div id="join-session-hint" class="join-session-hint hidden"></div>
+                    <div class="session-row">
+                        <input id="session-code-input" maxlength="4" placeholder="ABCD" aria-label="Session code" />
+                        <button id="join-session-btn">JOIN</button>
+                    </div>
+                    <div class="session-row">
+                        <button id="create-session-btn">CREATE NEW SESSION</button>
+                        <button id="logout-btn-splash" title="Logout" style="margin-left:8px;display:none">LOG OUT</button>
+                    </div>
+                    <div id="invite-row" class="session-row invite-row hidden">
+                        <input id="invite-url-input" readonly aria-label="Session invite URL" />
+                        <button id="copy-invite-btn" type="button">COPY INVITE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="splash-background">
+            <img src="../images/overwatch_horse_racing_splash_screen.png" alt="Background" class="splash-bg-image">
+        </div>
+    </div>
+
+    <!-- Viewer/Spectator badges aligned to the event log top border -->
+    <div id="viewer-spectator-bar" class="viewer-spectator-bar" aria-label="Viewers and Spectators">
+        <div id="viewer-count" class="viewer-count-badge">Viewers: 0</div>
+        <div id="spectator-count" class="spectator-count-badge">Spectators: 0</div>
+    </div>
+
+    <!-- Jukebox Toggle Icon -->
+    <div id="jukebox-toggle-icon" class="jukebox-toggle-icon">
+        <img src="../images/jukebox.png" alt="Music" class="jukebox-icon-img">
+    </div>
+
+    <!-- in game overwatch logo placements -->
+    <div class="in-game-logo-placement">
+        <img src="../images/OHR_logo.png" alt="OHR Logo" class="in-game-logo">
+        <img src="../images/overwatch_horse_racing_logo_wide.png" alt="Overwatch Horse Racing" class="in-game-wide-logo">
+    </div>
+
+    <!-- Intermission timer placement (top-center) -->
+    <div id="intermission-timer-host" class="in-game-intermission-placement" aria-hidden="true"></div>
+
+    <!-- Shot clock: center countdown after NEXT RACE hits 0 -->
+    <div id="shot-clock" class="shot-clock is-off" aria-live="assertive" aria-hidden="true">
+        <div class="shot-clock-label">STARTS IN</div>
+        <div class="shot-clock-stack">
+            <span class="shot-clock-ghost shot-clock-ghost--tl"></span>
+            <span class="shot-clock-ghost shot-clock-ghost--bl"></span>
+            <span class="shot-clock-face"></span>
+        </div>
+    </div>
+
+
+    <!-- Main Game Container -->
+    <div id="game-container" class="hidden">
+        
+        <!-- Left-side Event Log Panel (collapsible) -->
+        <div id="event-log-panel" class="event-log-panel" aria-label="Event Log">
+            <button type="button" id="event-log-toggle" class="event-log-toggle" aria-expanded="true" aria-controls="event-log-panel" title="Collapse event log">‹</button>
+            <div class="event-log-body">
+                <div class="event-log-tabs">
+                    <button class="event-tab active" data-tab="all" aria-selected="true">All</button>
+                    <button class="event-tab" data-tab="events" aria-selected="false">Events</button>
+                    <button class="event-tab" data-tab="chat" aria-selected="false">Chat</button>
+                </div>
+                <div id="event-log-list" class="event-log-list" role="log" aria-live="polite"></div>
+                <div class="event-log-input">
+                    <input id="event-chat-input" class="event-chat-input" type="text" placeholder="Type a message…" maxlength="200" />
+                    <button id="event-chat-send" class="event-chat-send">Send</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Session Info (moved to main area) -->
+        <div id="session-info">
+            <span id="session-timer">Session ends in: --:--</span>
+            <button id="copy-invite-inapp" type="button" title="Copy session invite URL">COPY INVITE</button>
+            <button id="logout-btn-inapp" title="Logout" style="margin-left:8px;">LOG OUT</button>
+        </div>
+
+        <!-- Main Game Area -->
+        <main id="game-main">
+            
+            <!-- Race Game Container - Full Screen Container for All Race Elements -->
+            <div id="race-game-container">
+                <!-- Race Track Container -->
+                <div id="race-track-container">
+                    <div id="race-track">
+                        <!-- Race HUD (time & laps) -->
+                        <div id="race-hud" class="race-hud">
+                            <div id="race-time" class="race-time">00:00.0</div>
+                            <div id="lap-counter" class="lap-counter">Lap 0 / 4</div>
+                        </div>
+                        <!-- Track background will be rendered here -->
+                        
+                        <!-- Character Racing Sprites Container -->
+                        <div id="racing-characters">
+                            <!-- Characters will be dynamically populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User interaction moved to Discord panels at bottom -->
+
+        </main>
+
+        <!-- Discord User Panels -->
+        <footer id="discord-panels-container">
+            <div id="discord-panel-1" class="discord-panel empty" data-panel-id="1">
+                <div class="panel-banner"><img alt="" /></div>
+                <button class="panel-exit-btn" aria-label="Leave">×</button>
+                <div class="panel-content">
+                    <div class="plus-icon">+</div>
+                </div>
+            </div>
+            <div id="discord-panel-2" class="discord-panel empty" data-panel-id="2">
+                <div class="panel-banner"><img alt="" /></div>
+                <button class="panel-exit-btn" aria-label="Leave">×</button>
+                <div class="panel-content">
+                    <div class="plus-icon">+</div>
+                </div>
+            </div>
+            <div id="discord-panel-3" class="discord-panel empty" data-panel-id="3">
+                <div class="panel-banner"><img alt="" /></div>
+                <button class="panel-exit-btn" aria-label="Leave">×</button>
+                <div class="panel-content">
+                    <div class="plus-icon">+</div>
+                </div>
+            </div>
+            <div id="discord-panel-4" class="discord-panel empty" data-panel-id="4">
+                <div class="panel-banner"><img alt="" /></div>
+                <button class="panel-exit-btn" aria-label="Leave">×</button>
+                <div class="panel-content">
+                    <div class="plus-icon">+</div>
+                </div>
+            </div>
+            <div id="discord-panel-5" class="discord-panel empty" data-panel-id="5">
+                <div class="panel-banner"><img alt="" /></div>
+                <button class="panel-exit-btn" aria-label="Leave">×</button>
+                <div class="panel-content">
+                    <div class="plus-icon">+</div>
+                </div>
+            </div>
+            <div id="discord-panel-6" class="discord-panel empty" data-panel-id="6">
+                <div class="panel-banner"><img alt="" /></div>
+                <button class="panel-exit-btn" aria-label="Leave">×</button>
+                <div class="panel-content">
+                    <div class="plus-icon">+</div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Pop-up Modals -->
+    
+    <!-- Overwatch-Style Character Selection -->
+    <div id="character-selection-overlay" class="character-overlay hidden">
+        <!-- Roster grid (behind stage when a hero is selected) -->
+        <div id="character-roster-grid">
+            <div class="grid-container" id="character-grid-container">
+                <!-- Character icons will be populated here -->
+            </div>
+        </div>
+
+        <!-- Centered hero stage: halo behind horse_full -->
+        <div id="character-hero-stage" class="character-hero-stage" aria-hidden="true">
+            <button type="button" id="selection-close-x" class="selection-close-x" title="Close" aria-label="Close selection">×</button>
+            <div class="character-main-view overlap-mode">
+                <img id="selection-halo" class="selection-halo" src="../images/halo.png" alt="" aria-hidden="true">
+                <img id="selected-character-image" src="" alt="Selected Character" class="character-large-image">
+            </div>
+        </div>
+
+        <!-- Rose/white semi-transparent stat block (covers lower roster until closed) -->
+        <div id="selection-stat-block" class="selection-stat-block hidden">
+            <div class="stat-block-header">
+                <h2 id="character-name">Select a Hero</h2>
+                <div class="character-role" id="character-role"></div>
+            </div>
+            <div class="stat-block-body">
+                <div class="stat-row">
+                    <span class="stat-label">SPEED</span>
+                    <div class="stat-bar"><div class="stat-fill" id="speed-bar"></div></div>
+                    <span class="stat-value" id="speed-value">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">POWER</span>
+                    <div class="stat-bar"><div class="stat-fill" id="power-bar"></div></div>
+                    <span class="stat-value" id="power-value">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">STAMINA</span>
+                    <div class="stat-bar"><div class="stat-fill" id="stamina-bar"></div></div>
+                    <span class="stat-value" id="stamina-value">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">DETERMINATION</span>
+                    <div class="stat-bar"><div class="stat-fill" id="determination-bar"></div></div>
+                    <span class="stat-value" id="determination-value">—</span>
+                </div>
+                <div class="stat-row ability-row">
+                    <span class="stat-label">ABILITY</span>
+                    <div class="ability-copy">
+                        <span class="ability-name" id="ability-name">—</span>
+                        <p class="ability-desc" id="ability-desc"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="lock-in-container" class="stat-block-actions">
+                <button id="lock-in-button" disabled>LOCK IN</button>
+                <button id="cancel-selection">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scoreboard Modal -->
+    <div id="scoreboard-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Race Results</h2>
+            </div>
+            <div class="modal-body">
+                <div id="character-standings">
+                    <h3>Character Placements</h3>
+                    <table id="character-results">
+                        <!-- Character race results -->
+                    </table>
+                </div>
+                <div id="user-standings">
+                    <h3>User Winnings</h3>
+                    <table id="user-results">
+                        <!-- User betting results -->
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer scoreboard-footer">
+                <button type="button" id="continue-scoreboard" class="continue-btn">CONTINUE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="backend_config.js"></script>
+    <script src="backend_client.js"></script>
+    <script src="ohr_assets.js"></script>
+    <script src="ui_config.js"></script>
+    <script src="character_selection.js"></script>
+    <script src="game_engine.js"></script>
+    <script src="racing.js"></script>
+    <script src="discord_integration.js"></script>
+    <script src="audio_system.js"></script>
+    <script src="announcer.js"></script>
+    <script src="main.js"></script>
+    <script>
+      // Wire logout buttons if backend available
+      document.addEventListener('DOMContentLoaded', () => {
+        const splashBtn = document.getElementById('logout-btn-splash');
+        const inappBtn = document.getElementById('logout-btn-inapp');
+        const hasBackend = !!(window.backendClient && window.backendClient.baseUrl && !String(window.backendClient.baseUrl).includes('REPLACE_WITH'));
+        if (splashBtn && hasBackend) splashBtn.style.display = '';
+        const doLogout = async () => {
+          try { await window.backendClient.logout(); } catch {}
+          try { localStorage.removeItem('ohr_local_user'); } catch {}
+          window.location.href = './index.html';
+        };
+        if (splashBtn) splashBtn.addEventListener('click', doLogout);
+        if (inappBtn) inappBtn.addEventListener('click', doLogout);
+
+        const copyInapp = document.getElementById('copy-invite-inapp');
+        if (copyInapp && hasBackend) {
+          copyInapp.addEventListener('click', async () => {
+            if (!window.backendClient) return;
+            const result = await window.backendClient.copySessionInvite();
+            const prev = copyInapp.textContent;
+            copyInapp.classList.add('is-copied');
+            copyInapp.textContent = result.ok ? 'COPIED' : 'COPY SHOWN';
+            setTimeout(() => {
+              copyInapp.classList.remove('is-copied');
+              copyInapp.textContent = prev;
+            }, 1400);
+          });
+        }
+
+        // Event log collapse — bind here so it never depends on racing.js init timing
+        (function wireEventLogCollapse() {
+          const panel = document.getElementById('event-log-panel');
+          const toggle = document.getElementById('event-log-toggle');
+          if (!panel || !toggle || toggle.dataset.collapseWired === '1') return;
+          toggle.dataset.collapseWired = '1';
+          const apply = (collapsed) => {
+            panel.classList.toggle('collapsed', !!collapsed);
+            toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+            toggle.title = collapsed ? 'Expand event log' : 'Collapse event log';
+            toggle.textContent = collapsed ? '›' : '‹';
+            try { localStorage.setItem('ohr_event_log_collapsed', collapsed ? '1' : '0'); } catch {}
+          };
+          let startCollapsed = false;
+          try { startCollapsed = localStorage.getItem('ohr_event_log_collapsed') === '1'; } catch {}
+          apply(startCollapsed);
+          toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            apply(!panel.classList.contains('collapsed'));
+          });
+        })();
+      });
+    </script>
+</body>
+</html>

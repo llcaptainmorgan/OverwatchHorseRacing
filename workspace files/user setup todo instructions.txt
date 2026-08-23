@@ -1,0 +1,31 @@
+MY TODO:
+- [for user to do] redo bg map
+
+---
+Local Full Serve (with Workers dev + static server)
+hard resetting ports:
+1. cd "C:\Users\jesse\OneDrive\Documents\CODES\overwatch horse racing"
+
+2. powershell -NoProfile -ExecutionPolicy Bypass -Command "$ports=@(8081,8787); foreach($port in $ports){ Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContinue ^| Select-Object -ExpandProperty OwningProcess -Unique ^| ForEach-Object { try { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue } catch {} } }"
+
+3. cd backend; npx wrangler dev --local --ip=127.0.0.1
+
+4. go to: cd "C:\Users\jesse\OneDrive\Documents\CODES\overwatch horse racing"
+
+4. npx http-server -p 8081 --host 127.0.0.1 -c-1
+
+5. visit:http://127.0.0.1:8081/main/index.html
+
+codeblock:
+cd "C:\Users\jesse\OneDrive\Documents\CODES\overwatch horse racing\main" && npx http-server -p 8081 -c-1
+
+---
+
+SCSS Watcher (auto-compile)
+1) Easiest: double-click tools/watch_scss.bat
+2) Or in a terminal at project root: npm run watch:css
+3) Edit SCSS files; output updates to main/styles.css automatically (run npm install once if first time)
+
+Manual SCSS build (one-time)
+1) In a terminal at project root: npm run build:css
+2) Reload http://127.0.0.1:8081/main/index.html

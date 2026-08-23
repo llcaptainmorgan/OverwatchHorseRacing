@@ -1,0 +1,99 @@
+/* Viewer/Spectator bar aligned to the event log top border */
+.viewer-spectator-bar {
+  position: fixed; left: 5px; top: 200px; display: flex; gap: 8px; z-index: 300 !important; /* Above race game container */
+}
+.viewer-count-badge, .spectator-count-badge {
+  background: rgba(252, 199, 219, 0.9); border: 1px solid var(--color-accent); border-radius: 10px; padding: 6px 10px; color: var(--color-background); font-weight: bold; font-size: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.event-log-panel {
+  position: fixed; top: 220px; left: 5px; width: 300px; height: 48vh; background: rgba(215, 240, 241, 0.85);
+  border: 1px solid var(--color-accent); border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  display: flex; flex-direction: row; align-items: stretch; z-index: 300 !important; /* Above race game container */ overflow: hidden;
+  transition: width 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-log-body {
+  display: flex; flex-direction: column; flex: 1 1 auto; min-width: 0; overflow: hidden;
+}
+
+.event-log-toggle {
+  flex: 0 0 28px;
+  width: 28px;
+  border: none;
+  border-right: 1px solid var(--color-accent);
+  background: rgba(252, 199, 219, 0.95);
+  color: var(--color-background);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  align-self: stretch;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.event-log-toggle:hover {
+  background: rgba(255, 127, 34, 0.85);
+  color: #fff;
+}
+
+.event-log-panel.collapsed {
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  height: 48px !important;
+  background: rgba(252, 199, 219, 0.95);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.event-log-panel.collapsed .event-log-body {
+  display: none;
+}
+
+.event-log-panel.collapsed .event-log-toggle {
+  flex: 1 1 auto;
+  width: 100%;
+  border-right: none;
+  border-radius: 10px;
+}
+
+.event-log-tabs { display: flex; gap: 6px; padding: 8px; background: rgba(252, 199, 219, 0.85); border-bottom: 1px solid var(--color-accent); }
+.event-tab { flex: 1; padding: 6px 8px; font-size: 12px; font-weight: bold; color: var(--color-background); background: #fff; border: 1px solid var(--color-accent); border-radius: 6px; cursor: pointer; }
+.event-tab.active { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); color: #fff; border-color: var(--color-primary); }
+
+.event-log-list { flex: 1; padding: 8px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
+.event-item { display: flex; align-items: center; gap: 8px; padding: 6px 8px; background: rgba(255,255,255,0.85); border: 1px solid rgba(64,77,112,0.15); border-radius: 6px; color: var(--color-background); }
+.event-badge { font-size: 10px; padding: 2px 6px; border-radius: 10px; color: #fff; }
+.badge-ability { background: var(--color-error); }
+.badge-overtake { background: var(--color-tertiary); }
+.badge-finish { background: var(--color-success); }
+.badge-debuff { background: #8e44ad; }
+.badge-system { background: #7f8c8d; }
+.badge-chat { background: var(--color-primary); }
+.event-time { font-size: 10px; color: rgba(64,77,112,0.8); margin-left: auto; }
+
+.event-log-input { display: flex; gap: 8px; padding: 8px; border-top: 1px solid var(--color-accent); background: rgba(252, 199, 219, 0.85); }
+.event-chat-input { flex: 1; height: 32px; border-radius: 6px; border: 1px solid var(--color-accent); padding: 0 10px; color: var(--color-background); }
+.event-chat-send { height: 32px; padding: 0 12px; border-radius: 6px; border: none; background: linear-gradient(135deg, var(--color-success) 0%, #27ae60 100%); color: #fff; font-weight: bold; cursor: pointer; }
+
+/* Spectator floating badge */
+.spectator-badge {
+  position: fixed; top: 95px; left: 20px; z-index: 96; background: rgba(127, 140, 141, 0.95); color: #fff; border-radius: 10px; padding: 6px 10px; font-weight: bold; font-size: 12px; border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Event Log scrolling and chat badges */
+#event-log-list { overflow-y: auto; max-height: 38vh; padding-right: 6px; }
+#event-log-list .event-item { display: flex; align-items: center; gap: 6px; padding: 3px 2px; flex-wrap: wrap; overflow-wrap: anywhere; word-break: break-word; }
+#event-log-list .chat-username { color: var(--color-background); font-weight: 600; }
+#event-log-list .chat-text { color: #333; overflow-wrap: anywhere; word-break: break-word; white-space: pre-wrap; }
+#event-log-list .chat-badge { padding: 1px 6px; border-radius: 10px; font-size: 10px; color: white; margin-left: 4px; }
+#event-log-list .badge-trainer { background: var(--color-primary); }
+#event-log-list .badge-viewer { background: var(--color-background); }
+#event-log-list .badge-spectator { background: #6a737d; }
+#event-log-list .event-time { font-size: 10px; color: #7a869a; }
+
+/* Ensure panel flex structure */
+.event-log-list { flex: 1 1 auto; }

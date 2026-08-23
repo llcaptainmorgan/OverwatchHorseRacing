@@ -1,0 +1,377 @@
+{
+  "meta": {
+    "generated_at": "2025-08-10T20:21:26.265Z",
+    "version": "1.0.0",
+    "source": "tools/generate_voiceline_templates.js"
+  },
+  "characters": [
+    "Ashe",
+    "Baptiste",
+    "Bastion",
+    "Brigette",
+    "Cassidy",
+    "Doomfist",
+    "D.Va",
+    "Echo",
+    "Freja",
+    "Genji",
+    "Hanzo",
+    "Hazard",
+    "Illari",
+    "Junkerqueen",
+    "Junkrat",
+    "Juno",
+    "Kirko",
+    "Lúcio",
+    "Mauga",
+    "Mei",
+    "Mercy",
+    "Moira",
+    "Orisa",
+    "Pharah",
+    "Ramattra",
+    "Reaper",
+    "Reinhardt",
+    "Roadhog",
+    "Sigma",
+    "Sojourn",
+    "Soldier: 76",
+    "Sombra",
+    "Symmetra",
+    "Torbjörn",
+    "Tracer",
+    "Venture",
+    "Widowmaker",
+    "Winnston",
+    "Wrecking Ball",
+    "Wuyang",
+    "Zarya",
+    "Zenyatta"
+  ],
+  "abilities": {
+    "ashe": "Ability",
+    "baptiste": "Ability",
+    "bastion": "Ability",
+    "brigette": "Ability",
+    "cassidy": "Ability",
+    "doomfist": "Ability",
+    "dva": "Ability",
+    "echo": "Ability",
+    "freja": "Ability",
+    "genji": "Ability",
+    "hanzo": "Ability",
+    "hazard": "Ability",
+    "illari": "Ability",
+    "junkerqueen": "Ability",
+    "junkrat": "Ability",
+    "juno": "Ability",
+    "kirko": "Ability",
+    "lucio": "Ability",
+    "mauga": "Ability",
+    "mei": "Ability",
+    "mercy": "Ability",
+    "moira": "Ability",
+    "orisa": "Ability",
+    "pharah": "Ability",
+    "ramattra": "Ability",
+    "reaper": "Ability",
+    "reinhardt": "Ability",
+    "roadhog": "Ability",
+    "sigma": "Ability",
+    "sojourn": "Ability",
+    "soldier76": "Ability",
+    "sombra": "Ability",
+    "symmetra": "Ability",
+    "torbjorn": "Ability",
+    "tracer": "Ability",
+    "venture": "Ability",
+    "widowmaker": "Ability",
+    "winnston": "Ability",
+    "wreckingball": "Ability",
+    "wuyang": "Ability",
+    "zarya": "Ability",
+    "zenyatta": "Ability"
+  },
+  "placeholders": {
+    "A": "Primary racer (e.g., overtaker / subject)",
+    "B": "Secondary racer (e.g., overtaken)",
+    "ability": "Ability name for the subject racer"
+  },
+  "speakers": {
+    "generic": {
+      "prefix": "",
+      "suffix": ""
+    },
+    "ana": {
+      "prefix": "[ana] ",
+      "suffix": ""
+    },
+    "lifeweaver": {
+      "prefix": "[lifeweaver] ",
+      "suffix": ""
+    }
+  },
+  "events": {
+    "overtake": {
+      "templates": [
+        "{A} overtakes {B}!",
+        "{A} slips past {B}!",
+        "{A} surges ahead of {B}!",
+        "{A} edges in front of {B}!",
+        "{A} flies by {B}!"
+      ],
+      "suffixes": [
+        "What a move!",
+        "Look at that pace!",
+        "The crowd goes wild!",
+        "That might do it!",
+        "Incredible acceleration!",
+        "Momentum is shifting!"
+      ],
+      "rules": {
+        "disallow_same_name": true
+      }
+    },
+    "victory_generic": {
+      "templates": [
+        "{A} takes the win!",
+        "{A} crosses the line first!",
+        "It is {A} on top!",
+        "{A} claims victory!"
+      ],
+      "suffixes": [
+        "A commanding performance.",
+        "What a finish!",
+        "They made it look easy!",
+        "Unstoppable today!"
+      ]
+    },
+    "start_good": {
+      "templates": [
+        "{A} gets a brilliant start!",
+        "{A} launches cleanly off the line!",
+        "{A} is out quickly!"
+      ],
+      "suffixes": [
+        "Perfect reaction time.",
+        "They are immediately in rhythm.",
+        "Setting the tone early."
+      ]
+    },
+    "start_bad": {
+      "templates": [
+        "{A} stumbles out of the gate.",
+        "{A} is slow to get moving.",
+        "A shaky start for {A}."
+      ],
+      "suffixes": [
+        "They need to recover quickly.",
+        "Plenty of race to go.",
+        "They will have to regroup."
+      ]
+    },
+    "finish_good": {
+      "templates": [
+        "{A} finishes strong!",
+        "{A} powers across the line!",
+        "{A} closes with authority!"
+      ],
+      "suffixes": [
+        "A great final stretch.",
+        "They left nothing out there.",
+        "That was clinical."
+      ]
+    },
+    "finish_bad": {
+      "templates": [
+        "{A} fades near the end.",
+        "{A} struggles to the line.",
+        "A tough final stretch for {A}."
+      ],
+      "suffixes": [
+        "They will want that one back.",
+        "Tiring legs at the finish.",
+        "They ran out of steam."
+      ]
+    },
+    "ability_used": {
+      "templates": [
+        "{A} just used {ability}!",
+        "{A} activates {ability}!",
+        "{A}'s {ability} comes out!",
+        "{A} pops {ability}!"
+      ],
+      "suffixes": [
+        "Look at them go!",
+        "That could be the difference!",
+        "Timing is everything.",
+        "Big momentum shift!"
+      ]
+    },
+    "race_start": {
+      "templates": [
+        "And we are underway!",
+        "They are off!",
+        "The race begins!"
+      ],
+      "suffixes": [
+        "Everyone looking for early position.",
+        "Watch for fast starters.",
+        "Settle in for the first lap."
+      ]
+    },
+    "map_commentary": {
+      "templates": [
+        "A beautiful day on the track.",
+        "Conditions look perfect for a fast race.",
+        "Crowd energy is electric."
+      ],
+      "suffixes": []
+    },
+    "pre_race_lineup": {
+      "templates": [
+        "Your lineup today features top contenders.",
+        "Eyes on {A} for a standout performance.",
+        "Keep an eye on {A}; they could surprise."
+      ],
+      "suffixes": []
+    },
+    "racer_focus": {
+      "templates": [
+        "Focus on {A}: consistent and composed.",
+        "{A} is holding a perfect line.",
+        "{A} looks comfortable in this pace."
+      ],
+      "suffixes": []
+    },
+    "position_callout": {
+      "templates": [
+        "{A} is in 1st!",
+        "{A} moves into 2nd!",
+        "{A} holds 3rd place.",
+        "{A} is battling in 4th.",
+        "{A} sits in 5th.",
+        "{A} is currently 6th."
+      ],
+      "suffixes": [
+        "Still plenty of race left.",
+        "Pressure mounting behind.",
+        "They need to maintain rhythm."
+      ]
+    },
+    "interrupt_shout": {
+      "templates": [
+        "Oh my!",
+        "What a moment!",
+        "Unbelievable!"
+      ],
+      "suffixes": []
+    },
+    "near_finish": {
+      "templates": [
+        "Final stretch approaching!",
+        "This will come down to the wire!",
+        "One last push remains!"
+      ],
+      "suffixes": [
+        "Everything on the line now.",
+        "Who wants it more?",
+        "No room for error."
+      ]
+    },
+    "storytime": {
+      "templates": [
+        "Did you know? {A} has a history of late surges.",
+        "Background check: {A} thrives on technical tracks.",
+        "Fun fact: This venue favors disciplined pacing."
+      ],
+      "suffixes": []
+    },
+    "lap_milestone": {
+      "templates": [
+        "{A} completes lap 1!",
+        "{A} completes lap 2!",
+        "{A} completes lap 3!"
+      ],
+      "suffixes": [
+        "Keeping steady.",
+        "Building momentum.",
+        "Setting up for the finish."
+      ]
+    },
+    "buff_applied": {
+      "templates": [
+        "{A} gains a boost!",
+        "{A} is energized!",
+        "A surge of pace for {A}!"
+      ],
+      "suffixes": [
+        "Watch this!",
+        "Pace increasing.",
+        "That helps a lot."
+      ]
+    },
+    "debuff_applied": {
+      "templates": [
+        "{A} is hindered!",
+        "{A} loses momentum!",
+        "{A} is slowed down!"
+      ],
+      "suffixes": [
+        "They will need to recover.",
+        "That hurts.",
+        "Tough break."
+      ]
+    },
+    "anti_spam_warning": {
+      "templates": [
+        "{A} is overextending their cheers.",
+        "Careful: cheer timing matters for {A}."
+      ],
+      "suffixes": [
+        "Penalties may apply.",
+        "Tempo control wins races."
+      ]
+    },
+    "intermission": {
+      "templates": [
+        "Intermission underway.",
+        "Make your selections and lock in.",
+        "Next race will start soon."
+      ],
+      "suffixes": []
+    },
+    "ai_takeover": {
+      "templates": [
+        "{A} is now under AI control.",
+        "AI takes over for {A}."
+      ],
+      "suffixes": [
+        "They will keep pace automatically."
+      ]
+    },
+    "spectator_event": {
+      "templates": [
+        "A viewer has joined the session.",
+        "A viewer has left the session."
+      ],
+      "suffixes": []
+    },
+    "session_closing": {
+      "templates": [
+        "Session closing due to inactivity.",
+        "This session will end shortly."
+      ],
+      "suffixes": []
+    },
+    "scoreboard_reveal": {
+      "templates": [
+        "Let’s see the final placements.",
+        "Time for the results."
+      ],
+      "suffixes": [
+        "Well raced, everyone."
+      ]
+    }
+  }
+}

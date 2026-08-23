@@ -1,0 +1,53 @@
+/* Generic Button Styles */
+.panel-action-btn {
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &.choose {
+    background: linear-gradient(135deg, var(--color-success) 0%, #27ae60 100%);
+    color: white;
+    &:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4); }
+  }
+  &.cheer {
+    background: linear-gradient(135deg, var(--color-error) 0%, #c0392b 100%);
+    color: white;
+    &:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4); }
+  }
+  &:disabled { background: #7f8c8d; opacity: 0.5; cursor: not-allowed; transform: none; }
+}
+
+.rush-button {
+  background: linear-gradient(135deg, var(--color-error) 0%, #c0392b 100%);
+  color: var(--color-text);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4); }
+}
+
+.user-cheer-btn {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--color-text);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+  &:hover:not(:disabled) { transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 10px rgba(255, 127, 34, 0.4); }
+  &:disabled { background: #666; cursor: not-allowed; opacity: 0.6; }
+}
