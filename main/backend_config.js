@@ -24,9 +24,8 @@ function getBackendUrl() {
     return 'http://127.0.0.1:8787'; // Local development
   }
 
-  // Production fallback: Replace with your actual Cloudflare Workers URL
-  // Example: 'https://ohr-backend.yourname.workers.dev'
-  return 'https://REPLACE_WITH_YOUR_WORKERS_URL.workers.dev';
+  // Production fallback: deployed Cloudflare Worker (race API)
+  return 'https://ohr-backend.capscrewunlimited.workers.dev';
 }
 
 const BACKEND_CONFIG = {

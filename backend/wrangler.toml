@@ -16,7 +16,7 @@ tag = "v1"
 new_sqlite_classes = ["SessionDO"]
 
 [vars]
-# Local default. Worker also allows localhost + https://*.github.io in code.
-ALLOWED_ORIGIN = "http://127.0.0.1:8081"
+# CORS: code also allows localhost + https://*.github.io. This is the primary prod origin.
+ALLOWED_ORIGIN = "https://llcaptainmorgan.github.io"
 
 
