@@ -18,6 +18,6 @@ new_sqlite_classes = ["SessionDO"]
 [vars]
 # CORS: code also allows localhost + https://*.github.io. This is the primary prod origin.
 ALLOWED_ORIGIN = "https://llcaptainmorgan.github.io"
-# /race bot: Pages join URL + guild allowlist (BlurpBlurps test, then Head Pat Enthusiasts)
+# /race bot: Pages join URL + guild allowlist (BlurpBlurps, Head Pat, The Fireteam)
 FRONTEND_PLAY_URL = "https://llcaptainmorgan.github.io/OverwatchHorseRacing/main/"
-ALLOWED_GUILD_IDS = "1540521473004019742,1231421702186078258"
+ALLOWED_GUILD_IDS = "1540521473004019742,1231421702186078258,878867762993324083"

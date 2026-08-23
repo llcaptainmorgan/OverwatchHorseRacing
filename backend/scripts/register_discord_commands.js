@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * One-shot: PUT guild /race commands on BlurpBlurps, then Head Pat Enthusiasts.
+ * One-shot: PUT guild /race on BlurpBlurps, Head Pat Enthusiasts, The Fireteam.
  * Reads token + app id from env, backend/.dev.vars, or repo-root .env (TOKENforOHR).
  * Never prints secret values.
  *
@@ -12,6 +12,7 @@ const path = require('path');
 const GUILDS = [
   { name: 'BlurpBlurps', id: '1540521473004019742' },
   { name: 'Head Pat Enthusiasts', id: '1231421702186078258' },
+  { name: 'The Fireteam', id: '878867762993324083' },
 ];
 
 const COMMANDS = [
