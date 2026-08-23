@@ -13,7 +13,7 @@ bindings = [
 
 [[migrations]]
 tag = "v1"
-new_classes = ["SessionDO"]
+new_sqlite_classes = ["SessionDO"]
 
 [vars]
 # Local default. Worker also allows localhost + https://*.github.io in code.
