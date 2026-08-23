@@ -105,13 +105,16 @@ class DiscordIntegration {
         const panel = this.panels[panelId];
         if (!panel) return;
         const el = panel.element;
-        if (el && el.classList.contains('disabled-claim')) return;
+        const alreadyOwned = this.getOwnedPanelId();
+        const inviteOk = panel.isEmpty && alreadyOwned && alreadyOwned !== panelId && this.isBetweenRaces();
+        if (el && el.classList.contains('disabled-claim') && !inviteOk) return;
 
         if (panel.isEmpty) {
-            // Empty panel - handle Discord authentication
-            // Prevent multi-panel claim if already owner of another slot
-            const alreadyOwned = this.getOwnedPanelId();
             if (alreadyOwned && alreadyOwned !== panelId) {
+                if (this.isBetweenRaces()) {
+                    this.openInvitePrompt();
+                    return;
+                }
                 if (el) {
                     el.classList.add('disabled-claim');
                     el.setAttribute('data-tooltip', `You already claimed Slot ${alreadyOwned}`);
@@ -424,6 +427,47 @@ class DiscordIntegration {
             if (this.panels[i]?.isOwner) return i;
         }
         return null;
+    }
+
+    isBetweenRaces() {
+        const phase = this.currentGameState;
+        return phase === 'intermission' || phase === 'results';
+    }
+
+    openInvitePrompt() {
+        const overlay = document.getElementById('invite-prompt');
+        const urlInput = document.getElementById('invite-prompt-url');
+        const copyBtn = document.getElementById('invite-prompt-copy');
+        const closeBtn = document.getElementById('invite-prompt-close');
+        if (!overlay || !window.backendClient || !window.backendClient.getSessionInviteUrl) return;
+        const url = window.backendClient.getSessionInviteUrl();
+        if (urlInput) urlInput.value = url;
+        overlay.hidden = false;
+        overlay.classList.remove('hidden');
+        const close = () => {
+            overlay.hidden = true;
+            overlay.classList.add('hidden');
+        };
+        if (copyBtn && !copyBtn.dataset.inviteWired) {
+            copyBtn.dataset.inviteWired = '1';
+            copyBtn.addEventListener('click', async () => {
+                const result = await window.backendClient.copySessionInvite();
+                const prev = copyBtn.textContent;
+                copyBtn.textContent = result.ok ? 'COPIED' : 'COPY SHOWN';
+                if (urlInput && result.url) urlInput.value = result.url;
+                setTimeout(() => { copyBtn.textContent = prev; }, 1400);
+            });
+        }
+        if (closeBtn && !closeBtn.dataset.inviteWired) {
+            closeBtn.dataset.inviteWired = '1';
+            closeBtn.addEventListener('click', close);
+        }
+        if (!overlay.dataset.inviteWired) {
+            overlay.dataset.inviteWired = '1';
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) close();
+            });
+        }
     }
 
     getButtonHTML(panel) {

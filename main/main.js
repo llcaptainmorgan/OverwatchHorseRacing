@@ -505,9 +505,10 @@ class OHRMainApp {
             const showInvite = (code) => {
                 if (!window.backendClient || !code) return;
                 window.backendClient.sessionCode = code;
-                const url = window.backendClient.getSessionInviteUrl(code);
-                if (inviteInput) inviteInput.value = url;
-                if (inviteRow) inviteRow.classList.remove('hidden');
+                if (inviteRow) {
+                    inviteRow.hidden = true;
+                    inviteRow.classList.add('hidden');
+                }
             };
 
             const pendingSession = (() => {

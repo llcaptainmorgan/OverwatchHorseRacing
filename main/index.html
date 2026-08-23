@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overwatch Horse Racing (OHR)</title>
-    <link rel="stylesheet" href="styles.css?v=invite1">
+    <link rel="stylesheet" href="styles.css?v=invite2">
 </head>
 <body>
     <!-- Main Game Container -->
@@ -30,7 +30,7 @@
                         <button id="create-session-btn">CREATE NEW SESSION</button>
                         <button id="logout-btn-splash" title="Logout" style="margin-left:8px;display:none">LOG OUT</button>
                     </div>
-                    <div id="invite-row" class="session-row invite-row hidden">
+                    <div id="invite-row" class="session-row invite-row hidden" hidden>
                         <input id="invite-url-input" readonly aria-label="Session invite URL" />
                         <button id="copy-invite-btn" type="button">COPY INVITE</button>
                     </div>
@@ -96,7 +96,7 @@
         <!-- Session Info (moved to main area) -->
         <div id="session-info">
             <span id="session-timer">Session ends in: --:--</span>
-            <button id="copy-invite-inapp" type="button" title="Copy session invite URL">COPY INVITE</button>
+            <button id="copy-invite-inapp" type="button" title="Copy session invite URL" hidden>COPY INVITE</button>
             <button id="logout-btn-inapp" title="Logout" style="margin-left:8px;">LOG OUT</button>
         </div>
 
@@ -263,18 +263,30 @@
         </div>
     </div>
 
+    <div id="invite-prompt" class="invite-prompt hidden" role="dialog" aria-modal="true" aria-labelledby="invite-prompt-title" hidden>
+        <div class="invite-prompt-card">
+            <h2 id="invite-prompt-title">Invite a racer</h2>
+            <p>Send this link. They join the same session.</p>
+            <input id="invite-prompt-url" readonly aria-label="Session invite URL" />
+            <div class="invite-prompt-actions">
+                <button type="button" id="invite-prompt-copy">COPY LINK</button>
+                <button type="button" id="invite-prompt-close">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="backend_config.js?v=invite1"></script>
-    <script src="backend_client.js?v=invite1"></script>
-    <script src="ohr_assets.js"></script>
-    <script src="ui_config.js"></script>
-    <script src="character_selection.js"></script>
-    <script src="game_engine.js"></script>
-    <script src="racing.js"></script>
-    <script src="discord_integration.js"></script>
-    <script src="audio_system.js"></script>
-    <script src="announcer.js"></script>
-    <script src="main.js?v=invite1"></script>
+    <script src="backend_config.js?v=invite2"></script>
+    <script src="backend_client.js?v=invite2"></script>
+    <script src="ohr_assets.js?v=invite2"></script>
+    <script src="ui_config.js?v=invite2"></script>
+    <script src="character_selection.js?v=invite2"></script>
+    <script src="game_engine.js?v=invite2"></script>
+    <script src="racing.js?v=invite2"></script>
+    <script src="discord_integration.js?v=invite2"></script>
+    <script src="audio_system.js?v=invite2"></script>
+    <script src="announcer.js?v=invite2"></script>
+    <script src="main.js?v=invite2"></script>
     <script>
       // Wire logout buttons if backend available
       document.addEventListener('DOMContentLoaded', () => {
@@ -290,7 +302,8 @@
         if (splashBtn) splashBtn.addEventListener('click', doLogout);
         if (inappBtn) inappBtn.addEventListener('click', doLogout);
 
-        const copyInapp = document.getElementById('copy-invite-inapp');
+        const copyInapp = document.getElementById('copy-invite-inapp') || document.getElementById('copy-invite-inapp');
+        if (copyInapp) copyInapp.hidden = true;
         if (copyInapp && hasBackend) {
           copyInapp.addEventListener('click', async () => {
             if (!window.backendClient) return;

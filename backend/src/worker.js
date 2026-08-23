@@ -3,19 +3,39 @@
 // #
 // # Routes:
 // # - POST /sessions: create session and return session code
+// # - POST /discord/interactions: Discord slash-command endpoint (no CORS)
 // # - GET  /settings: expose race settings to client
 // # - GET  /characters: expose character database to client
 // # - /sessions/:code/*: proxy to Durable Object for stateful operations
 // ################################################################################
 import { RACE_SETTINGS } from './config/settings.js';
 import characterDatabase from './data/character_database.json' assert { type: 'json' };
-import { SessionDO, safeJson } from './routes/session_routes.js';
+import { SessionDO as SessionDO } from './routes/session_routes.js';
+import { handleDiscordInteractions } from './discord_interactions.js';
 
 export { SessionDO };
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    const path = url.pathname.replace(/\/+$/, '') || '/';
+    const discordSig = request.headers.get('x-signature-ed25519');
+    // Discord Interactions are not a browser origin — do not wrap with CORS.
+    // Accept /discord/interactions and also POST / (portal sometimes omits the path).
+    const isDiscordRoute = path === '/discord/interactions'
+      || path === '/discord/interactions'
+      || (request.method === 'POST' && path === '/' && discordSig);
+    if (isDiscordRoute) {
+      if (request.method === 'GET' || request.method === 'HEAD') {
+        const body = JSON.stringify({ ok: true, service: 'ohr-discord-interactions' });
+        return new Response(request.method === 'HEAD' ? null : body, {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      return handleDiscordInteractions(request, env, () => mintSession(request, env));
+    }
 
     // Handle CORS preflight
     if (request.method === 'OPTIONS') {
@@ -56,10 +76,7 @@ export default {
 
     // Create session endpoint: POST /sessions
     if (request.method === 'POST' && url.pathname === '/sessions') {
-      const sessionCode = generateCode();
-      const id = env.SESSION_DO.idFromName(sessionCode);
-      const stub = env.SESSION_DO.get(id);
-      await stub.fetch(new URL('/state', request.url)); // warm up instance
+      const sessionCode = await mintSession(request, env);
       return cors(Response.json({ sessionCode, settings: RACE_SETTINGS }), env, request);
     }
 
@@ -75,6 +92,14 @@ export default {
   }
 };
 
+async function mintSession(request, env) {
+  const sessionCode = generateCode();
+  const id = env.SESSION_DO.idFromName(sessionCode);
+  const stub = env.SESSION_DO.get(id);
+  await stub.fetch(new URL('/state', request.url));
+  return sessionCode;
+}
+
 function generateCode() {
   const alphabet = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
   let out = '';
@@ -85,9 +110,18 @@ function generateCode() {
 // =====================
 // Discord OAuth helpers
 // =====================
+function resolveDiscordRedirectUri(url, env) {
+  const derived = `${url.origin}/auth/discord/callback`;
+  const configured = String(env.DISCORD_REDIRECT_URI || '').trim();
+  const host = url.hostname;
+  const isLocal = host === '127.0.0.1' || host === 'localhost';
+  if (isLocal && configured) return configured;
+  return derived;
+}
+
 async function discordLogin(url, env) {
   const clientId = env.DISCORD_CLIENT_ID;
-  const redirectUri = env.DISCORD_REDIRECT_URI;
+  const redirectUri = resolveDiscordRedirectUri(url, env);
   if (!clientId || !redirectUri) return new Response('OAuth not configured', { status: 500 });
 
   const slot = url.searchParams.get('slot') || '';
@@ -110,7 +144,7 @@ async function discordCallback(url, env) {
 
   const clientId = env.DISCORD_CLIENT_ID;
   const clientSecret = env.DISCORD_CLIENT_SECRET;
-  const redirectUri = env.DISCORD_REDIRECT_URI;
+  const redirectUri = resolveDiscordRedirectUri(url, env);
   const jwtSecret = env.SESSION_JWT_SECRET;
   if (!clientId || !clientSecret || !redirectUri || !jwtSecret) return new Response('OAuth not configured', { status: 500 });
 
